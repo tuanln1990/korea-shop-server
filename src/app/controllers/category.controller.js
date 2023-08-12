@@ -53,7 +53,8 @@ class CategoryController {
   async delete(req, res) {
     console.log("delete category...");
     Category.delete({ _id: req.params.id })
-      .then(res.json("delete sucessfull"))
+      .then(()=>res.json("delete sucessfull")
+    )
       .catch((err) => console.log(err));
   }
   // [DELETE] category/handle-actions
@@ -91,7 +92,7 @@ class CategoryController {
   async restore(req, res) {
     console.log("Khôi phục danh mục: ");
     Category.restore({ _id: req.params.id })
-      .then(res.send("Khôi phục thành công"))
+      .then(()=>res.send("Khôi phục thành công"))
       .catch((errors) => console.log(errors));
   }
 
@@ -123,7 +124,7 @@ class CategoryController {
         break;
       case "restore":
         Category.restore({ _id: { $in: req.body.data } })
-          .then(res.json("Restore many sucessfull"))
+          .then(()=>res.json("Restore many sucessfull"))
           .catch((errors) => console.log(errors));
       default:
         break;

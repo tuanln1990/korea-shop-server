@@ -59,7 +59,7 @@ class ProductController {
   async delete(req, res) {
     console.log("delete product...");
     Product.delete({ _id: req.params.id })
-      .then(res.json("delete sucessfull!"))
+      .then(()=>res.json("delete sucessfull!"))
       .catch((err) => console.log(err));
   }
   // [DELETE] product/handle-actions
@@ -104,7 +104,7 @@ class ProductController {
   async restore(req, res) {
     console.log("Khôi phục danh mục: ");
     Product.restore({ _id: req.params.id })
-      .then(res.send("Khôi phục thành công"))
+      .then(()=>res.send("Khôi phục thành công"))
       .catch((errors) => console.log(errors));
   }
 
@@ -146,7 +146,7 @@ class ProductController {
         break;
       case "restore":
         Product.restore({ _id: { $in: req.body.data } })
-          .then(res.json("Restore many sucessfull"))
+          .then(()=>res.json("Restore many sucessfull"))
           .catch((errors) => console.log(errors));
       default:
         break;
