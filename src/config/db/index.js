@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 async function connect() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/shop");
+    await mongoose.connect("mongodb+srv://admin:21%23%40%21Abc@sandbox.ecy3lsy.mongodb.net/");
     console.log("connect suscessful !!!");
   } catch (errors) {
     console.log("Connect failed !!!");
