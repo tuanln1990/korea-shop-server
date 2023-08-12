@@ -6,7 +6,7 @@ var bcrypt = require("bcryptjs");
 class AuthController {
   //   [POST] /auth/signup
   signup = (req, res) => {
-    console.log(req.body.province);
+    console.log('creating user');
     const user = new User(req.body);
     user.password = user.password
       ? bcrypt.hashSync(req.body.password, 8)
@@ -34,7 +34,9 @@ class AuthController {
             .then(() => {
               res.send({ status: "ok" });
             })
-            .catch((err) => res.json(err));
+            .catch((err) => {
+              res.json(err)
+            });
         })
         .catch((err) => res.json(err));
     }
